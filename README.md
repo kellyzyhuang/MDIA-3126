@@ -1,4 +1,3 @@
-
 # MDIA3126
 
 ## 3 Things you want to try during this course 
