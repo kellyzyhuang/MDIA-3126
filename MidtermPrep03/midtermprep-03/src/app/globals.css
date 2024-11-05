@@ -20,81 +20,10 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-/* Container and general layout */
-.container {
-  padding: 20px;
-  max-width: 900px;
-  margin: auto;
-  text-align: center;
-}
-
-/* Header styles */
-.header h1 {
-  font-size: 1.8rem;
-  margin-bottom: 20px;
-}
-
-.fetch-button {
-  margin: 10px;
-  padding: 10px 20px;
-  font-size: 1rem;
-  border: 1px solid #333;
-  border-radius: 5px;
-  cursor: pointer;
-  background-color: #4CAF50;
-  color: white;
-}
-
-.fetch-button:disabled {
-  background-color: #ccc;
-  cursor: not-allowed;
-}
-
-/* Art gallery grid layout */
-.art-gallery {
-  display: grid;
-  gap: 1rem;
-  grid-template-columns: 1fr;
-  margin-top: 20px;
-}
-
-/* Art card styling */
-.art-card {
-  background-color: #f9f9f9;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  padding: 10px;
-  text-align: center;
-}
-
-.art-image {
-  max-width: 100%;
-  height: auto;
-  width: 200px;
-  margin: 0 auto;
-  border-radius: 4px;
-}
-
-.no-image {
-  height: 200px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #eee;
-  border-radius: 4px;
-  color: #666;
-}
-
-/* Responsive breakpoints */
 @media (min-width: 600px) {
-  .art-gallery {
+  .list {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
-@media (min-width: 900px) {
-  .art-gallery {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
 

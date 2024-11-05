@@ -2,7 +2,7 @@ import Card from "../molecules/Card";
 
 export default function List({ artData }) {
   return (
-    <section className="art-gallery">
+    <section className="list">
       {artData.map((art) => (
         <Card key={art.objectID} art={art} />
       ))}

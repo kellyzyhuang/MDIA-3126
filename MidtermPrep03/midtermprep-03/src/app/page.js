@@ -15,12 +15,19 @@ export default function Home() {
         "https://collectionapi.metmuseum.org/public/collection/v1/objects?departmentIds=11"
       );
       const data = await response.json();
-      const artObjects = await Promise.all(
-        data.objectIDs.slice(0, 5).map(async (id) => {
-          const res = await fetch(`https://collectionapi.metmuseum.org/public/collection/v1/objects/${id}`);
-          return await res.json();
-        })
-      );
+
+      const artObjects = [];
+      for (let id of data.objectIDs) {
+        const res = await fetch(`https://collectionapi.metmuseum.org/public/collection/v1/objects/${id}`);
+        const objectData = await res.json();
+
+        if (objectData.primaryImage) {
+          artObjects.push(objectData);
+        }
+
+        if (artObjects.length === 5) break;
+      }
+
       setArtData(artObjects);
     } catch (error) {
       console.error("Error fetching data:", error);
@@ -33,18 +40,18 @@ export default function Home() {
     setArtData(null);
   }
 
-  const Header = () => (
-    <header className="header">
+  const Description = () => (
+    <div className="description">
       <h1>Met Museum Art Collection</h1>
       <Button onClick={artData ? clearData : fetchArtData} disabled={loading} className="fetch-button">
-        {artData ? "Clear Data" : "Fetch Artwork"}
+        {artData ? "Clear Data" : "Show Artwork"}
       </Button>
-    </header>
+    </div>
   );
 
   return (
     <div className="container">
-      <Header />
+      <Description />
       {loading && <div>Loading...</div>}
       {artData ? <List artData={artData} /> : !loading && <div>No data fetched yet!</div>}
     </div>
