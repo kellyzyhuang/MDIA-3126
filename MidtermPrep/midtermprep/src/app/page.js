@@ -1,3 +1,4 @@
+"use client"; 
 // server-side-rendered component: app tells server client wants 
 // to render some data --> sends HTML response (static information)
 // can send HTML and data back all at once really fast (text-data; super small super efficient)
